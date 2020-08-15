@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body style='text-align: center;'>
+    <p style="font-family:Georgia;color: slateblue;font-size: 75px;">Find out who really commented first.</p>
+    <input style="padding:10px 20px; width: 400px; " type="text" id="link" value=''>
+    <p></p>
+    <button style="font-family:Georgia; padding: 3px 5px" type="button" onclick="generatePage(link.value)">Get First Comment</button>
+    <script>
+        // have to add link validation -> For 'share' links, for people throwing in random text
+        function generatePage(link) {
+            var goto = document.URL + "/" + link.substring(link.indexOf('?v=') + 3);
+            window.location.replace(goto);
+        }
+    </script>
+</body>
+</html>
