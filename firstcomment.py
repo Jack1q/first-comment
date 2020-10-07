@@ -6,7 +6,7 @@ class FirstComment:
         self.youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey = KEY)
 
     def get_last_comment(self, youtube, id, token=''):
-        response = youtube.commentThreads().list(part='snippet', pageToken=token, videoId=id, textFormat='plainText').execute()
+        response = youtube.commentThreads().list(part='snippet', pageToken=token, videoId=id, textFormat='plainText', maxResults=100).execute()
         if 'nextPageToken' in response:
             return self.get_last_comment(youtube, id, response['nextPageToken'])
         comment = response['items'][-1]['snippet']['topLevelComment']['snippet']
